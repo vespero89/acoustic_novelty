@@ -213,12 +213,12 @@ model.add(Dense(54, activation='linear'))
 
 print("Compiling...")
 sys.stdout.flush()
-autoencoder.compile(optimizer='sgd', loss='mse', metrics=['accuracy'])
+model.compile(optimizer='sgd', loss='mse', metrics=['accuracy'])
 
 print("Fitting...")
 sys.stdout.flush()
-#autoencoder.fit(train_data_noise, train_data, nb_epoch = 100, callbacks = [CustomEarlyStopping(validation_data = test_data, seq_lengths = testSeqLengths, labels = test_labels, patience = 20)], verbose=1)
-autoencoder.fit(train_data_noise, train_data, nb_epoch = 100, verbose=True,callbacks=[BaseLogger(), ProgbarLogger()])
+#model.fit(train_data_noise, train_data, nb_epoch = 100, callbacks = [CustomEarlyStopping(validation_data = test_data, seq_lengths = testSeqLengths, labels = test_labels, patience = 20)], verbose=1)
+model.fit(train_data_noise, train_data, nb_epoch = 100, verbose=True,callbacks=[BaseLogger(), ProgbarLogger()])
 
 
 end_exp_time = time()-start_exp_time
